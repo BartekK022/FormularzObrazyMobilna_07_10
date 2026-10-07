@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import android.media.Image;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editTextNrObrazu;
     SeekBar seekBarNrObrazu;
     Spinner spinnerObrazy;
-    int numerObrazka;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +96,33 @@ public class MainActivity extends AppCompatActivity {
                         } else if(i == R.id.radioButton3) {
                             imageViewObraz.setImageResource(obrazkiID[2]);
                             //moze tez byc imageViewObraz.setImageResource(R.drawable.obraz3);
+                        }
+
+                    }
+                }
+        );
+        editTextNrObrazu.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        if(charSequence.toString().isEmpty()) {
+
+                        } else {
+                            int nrObrazka = Integer.parseInt(charSequence.toString());
+                            if(nrObrazka >= 0 && nrObrazka <= 2) {
+                                imageViewObraz.setImageResource(obrazkiID[nrObrazka]);
+                            }
+
                         }
 
                     }
