@@ -86,7 +86,15 @@ public class MainActivity extends AppCompatActivity {
                 new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(@NonNull RadioGroup radioGroup, int i) {
-                       // Toast.makeText(MainActivity.this, "" + i, )
+                        Toast.makeText(MainActivity.this, "" + i, Toast.LENGTH_SHORT).show();
+                        if(i == R.id.radioButton) {
+                            imageViewObraz.setImageResource(R.drawable.obraz1);
+                        } else if(i == R.id.radioButton2) {
+                            imageViewObraz.setImageResource(R.drawable.obraz2);
+                        } else if(i == R.id.radioButton3) {
+                            imageViewObraz.setImageResource(obrazkiID[2]);
+                            //moze tez byc imageViewObraz.setImageResource(R.drawable.obraz3);
+                        }
 
                     }
                 }
